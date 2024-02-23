@@ -1,7 +1,7 @@
 //importando
 import 'dart:js_interop';
 import 'package:flutter/material.dart';
-import 'package:app_list_1/TarefaModel.dart';
+import 'package:app_list_1/TarefasModel.dart';
 
 class TarefasController extends ChangeNotifier{
 
@@ -22,7 +22,16 @@ class TarefasController extends ChangeNotifier{
   void marcarConcluida(int indice){
     if (indice >= 0 && indice < _tarefas.length) {
       _tarefas[indice].concluida = true;
+      //Notifica ou ouvintes sobre a mudança de estado
+      notifyListeners();
     }
   }
 
+  void excluirTarefa(int indice){
+    if(indice >= 0 && indice < _tarefas.length){
+      _tarefas.removeAt(indice);
+      //Notifica ou ouvintes sobre a mudança de estado
+      notifyListeners();
+    }
+  }
 }
