@@ -1,3 +1,6 @@
+
+import 'dart:js_interop';
+
 import 'package:projeto_lista_compras/ListaComprasModel.dart';
 import 'package:projeto_lista_compras/ListaComprasController.dart';
 import 'package:flutter/material.dart';
@@ -6,59 +9,35 @@ import 'package:provider/provider.dart';
 
 class ListaComprasView extends StatelessWidget{
   final TextEditingController _controller = TextEditingController();
+    //Lista Compras
+  List<ListaComprasModel> _compras = [];
+
+  //Getter para percorrer a lista
+  List<ListaComprasModel> get compras => _compras;
   
   @override
   Widget build(BuildContext context) {
+  ListaComprasController classControl = ListaComprasController();
 return Scaffold(
-  appBar: AppBar(
-    title: Text('Lista de Compras'),
-  ),
   // Corpo principal do aplicativo
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
+      body: Padding(
+   padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
               controller: _controller,
-              decoration: InputDecoration(
-                labelText: 'Nova Compra',
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    Provider.of<ListaComprasController>(context, listen: false)
-                    .adicionarCompras(_controller.text);
-                    _controller.clear();
-                  },
-                  icon: Icon(Icons.add),
-                ),
-              ),
+              decoration: InputDecoration(labelText: 'Item'),
             ),
-          ),
-
-     // Lista de tarefas usando um Consumer do Provider para atualização automática
-          Expanded(
-            child: Consumer<ListaComprasModel>(
-              builder: (context, model, child) {
-                return ListView.builder(
-                  itemCount: model.compras.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      // Exibição do texto da tarefa
-                      title: Text(model.[index].descricao),
-                     
-                      // Exclui a tarefa ao manter pressionado
-                      onLongPress: () {
-                        // Chamando o método excluirTarefa do Provider para atualizar o estado
-                        model.excluirCompras(index);
-                      },
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-        ],
+            ElevatedButton(onPressed: () => classControl.adicionarCompras(_controller.text, _compras.length), child: Text('Adicionar'))
+          ],
+        ),
       ),
-    );
-  }
-}
+);
   
+
+}
+
+
+}

@@ -2,7 +2,7 @@ class ListaComprasModel {
   
   //atributos
   String descricao;
-  int quantidade;
+  String quantidade;
   bool selecionada;
 
   // construtor
