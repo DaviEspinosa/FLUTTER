@@ -11,7 +11,9 @@ class ListaComprasScreen extends StatelessWidget {
     return Scaffold(
       // Barra superior do aplicativo
       appBar: AppBar(
-        title: Text('Lista de Compras'),
+        backgroundColor: Color.fromRGBO(8, 118, 130, 1),
+        titleTextStyle: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
+        title: Text('Compras'),
       ),
       // Corpo principal do aplicativo
       body: Column(
@@ -69,7 +71,7 @@ class ListaComprasScreen extends StatelessWidget {
                             content: TextField(
                               controller: _controller,
                               decoration: InputDecoration(
-                                labelText: 'Atualizar Lista de Compras',
+                                labelText: 'Digite aqui...',
                               ),
                             ),
                             actions: [

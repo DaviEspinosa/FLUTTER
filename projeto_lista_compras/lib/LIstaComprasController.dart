@@ -44,7 +44,6 @@ class ListaComprasController extends ChangeNotifier {
   }
 
   void _avisoVazio(BuildContext context) { // Criar um método para abrir uma caixa de diálogop
-// set up the button
     Widget okButton = TextButton( // Cria o botão de OK
     
       child:Text("OK"), 
@@ -54,9 +53,9 @@ class ListaComprasController extends ChangeNotifier {
       },
     );
 
-    AlertDialog alert = AlertDialog(
-      title: Text("⚠ Aviso ⚠"),
-      content: Text("Por favor, digite uma informação para a lista."),
+
+    AlertDialog aviso = AlertDialog(
+      content: Text("Escreva algo, por favor!!!"),
       actions: [
         okButton,
       ],
@@ -65,7 +64,7 @@ class ListaComprasController extends ChangeNotifier {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return alert;
+        return aviso;
       },
     );
   }
