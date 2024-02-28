@@ -1,30 +1,72 @@
-// importando
+// ignore_for_file: prefer_is_not_empty
+import 'dart:js';
+
 import 'package:flutter/material.dart';
-import 'package:projeto_lista_compras/ListaComprasModel.dart';
+import 'package:projeto_lista_compras/listaComprasModel.dart';
 
-class ListaComprasController extends ChangeNotifier{
+class ListaComprasController extends ChangeNotifier {
+  BuildContext context;
 
-  //Lista Compras
-  List<ListaComprasModel> _compras = [];
+  ListaComprasController(this.context);
 
-  //Getter para percorrer a lista
-  List<ListaComprasModel> get compras => _compras;
+  List<Compras> _compras = [];
 
-  //CRUD
+  List<Compras> get compras => _compras;
 
-  //Adicionar Lista Compras
-  void adicionarCompras(String descricao, String quantidade){
-    _compras.add(ListaComprasModel(descricao, quantidade, false));//construtor da lista de compras
-    notifyListeners();
+  // método CRUD
+  void adicionarCompra(String descricao) {
+    if (descricao.trim().isNotEmpty) {
+      _compras.add(Compras(descricao.trim(), false));
+      notifyListeners();
+    } else {
+      _avisoVazio(context);
+    }
   }
 
-  void excluirCompras(int indice){
-    if(indice >= 0 && indice < _compras.length){
+  void marcarComoConcluida(int indice) {
+    if (indice >= 0 && indice < _compras.length) {
+      _compras[indice].concluida = !_compras[indice].concluida;
+      notifyListeners();
+    }
+  }
+
+  void excluirCompra(int indice) {
+    if (indice >= 0 && indice < _compras.length) {
       _compras.removeAt(indice);
       notifyListeners();
     }
   }
 
-  void atualizarCompras(String descricao, int qunatidade, int indice){
+  void atualizarCompra(int indice, String descricao){
+    if (indice >= 0 && indice < _compras.length) {
+      _compras.add(Compras(descricao.trim(), _compras[indice].concluida));
     }
+  }
+
+  void _avisoVazio(BuildContext context) { // Criar um método para abrir uma caixa de diálogop
+// set up the button
+    Widget okButton = TextButton( // Cria o botão de OK
+    
+      child:Text("OK"), 
+      onPressed: () {
+        Navigator.of(context)
+            .pop(); // Fechar o AlertDialog ao pressionar o botão "OK"
+      },
+    );
+
+    AlertDialog alert = AlertDialog(
+      title: Text("⚠ Aviso ⚠"),
+      content: Text("Por favor, digite uma informação para a lista."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
 }

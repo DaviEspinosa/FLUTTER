@@ -1,16 +1,7 @@
-class ListaComprasModel {
-  
-  //atributos
+class Compras {
   String descricao;
-  String quantidade;
-  bool selecionada;
+  bool concluida;
 
-  // construtor
-  ListaComprasModel(
-    this.descricao, 
-    this.quantidade,
-    this.selecionada
-  );
-
-  get compras => null;
+  // Construtor da classe Tarefa
+  Compras(this.descricao, this.concluida);
 }
