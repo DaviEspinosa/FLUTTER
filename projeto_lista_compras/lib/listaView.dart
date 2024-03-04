@@ -7,7 +7,7 @@ class ListaComprasScreen extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {  
     return Scaffold(
       // Barra superior do aplicativo
       appBar: AppBar(
