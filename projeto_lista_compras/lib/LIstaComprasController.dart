@@ -20,7 +20,7 @@ class ListaComprasController extends ChangeNotifier {
       _compras.add(Compras(descricao.trim(), false));
       notifyListeners();
     } else {
-      _avisoVazio(context);
+      _aviso(context);
     }
   }
 
@@ -44,7 +44,7 @@ class ListaComprasController extends ChangeNotifier {
     }
   }
 
-  void _avisoVazio(BuildContext context) { // Criar um método para abrir uma caixa de diálogop
+  void _aviso(BuildContext context) { // Criar um método para abrir uma caixa de diálogop
     Widget okButton = TextButton( // Cria o botão de OK
     
       child:Text("OK"), 

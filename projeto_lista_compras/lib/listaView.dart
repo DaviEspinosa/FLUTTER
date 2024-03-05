@@ -24,7 +24,7 @@ class ListaComprasScreen extends StatelessWidget {
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'Nova Lista de Compras',
+                labelText: 'Adicionar Compras...',
                 // Ícone para adicionar tarefa ao pressionar o botão
                 suffixIcon: IconButton(
                   onPressed: () {
