@@ -15,6 +15,7 @@ class ListaComprasController extends ChangeNotifier {
 
   // método CRUD
   void adicionarCompra(String descricao) {
+    // após remover espaços em branco, verifica se está vazio
     if (descricao.trim().isNotEmpty) {
       _compras.add(Compras(descricao.trim(), false));
       notifyListeners();
