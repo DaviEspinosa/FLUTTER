@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ListView extends StatelessWidget{
+class View extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-    home: Scaffold(
+
+    return Scaffold(
       appBar:AppBar(
         title: Text('List View'),
         titleTextStyle: TextStyle(color: Color.fromRGBO(255,255,255,1)),
         backgroundColor: Color.fromRGBO(15, 75, 42, 1),
       ),
-
 
       body: Center(
         child: Container(
@@ -23,10 +22,6 @@ class ListView extends StatelessWidget{
           ),
         ),
       ),
-    ),
-   );
+    );
   } 
-}
-void main(){
-  runApp(ListView());
 }
