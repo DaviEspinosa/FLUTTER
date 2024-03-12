@@ -1,22 +1,62 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'dart:js_interop';
+
 import 'package:exrcicio_lista_1/App.dart';
 import 'package:exrcicio_lista_1/View.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main(){
-  runApp(View());
+  runApp(exercicio());
 }
 
-class View extends StatelessWidget{
+class exercicio extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
   return MaterialApp(
-    home: Scaffold(
-      appBar:AppBar(
-        title: Text('List View'),
-        titleTextStyle: TextStyle(color: Color.fromRGBO(255,255,255,1)),
-        backgroundColor: Color.fromRGBO(15, 75, 42, 1),
+    home: DefaultTabController(
+      initialIndex: 0,
+      length: 2,
+      child: Scaffold(
+        appBar:AppBar(
+          title: Text('List View'),
+          titleTextStyle: TextStyle(color: Color.fromRGBO(255,255,255,1)),
+          backgroundColor: Color.fromRGBO(81, 15, 147, 1),
+          bottom: TabBar(
+            tabs: <Widget>[
+              Tab(
+                icon: Icon(Icons.cloud, color: Color.fromRGBO(255,255 ,255 , 1)),
+                
+              ),
+              Tab(
+                icon: Icon(Icons.umbrella, color: Color.fromRGBO(255,255 ,255 , 1)),
+              ),
+              Tab(
+                icon: Icon(Icons.car_crash, color: Color.fromRGBO(255,255 ,255 , 1)),
+              ),
+              Tab(
+                icon: Icon(Icons.vaccines, color: Color.fromRGBO(255,255 ,255 , 1)),
+              ),
+            ]
+          ),
+        ),
+
+      drawer: Drawer(
+        backgroundColor: Color.fromRGBO(183, 183, 183, 1),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                currentAccountPicture: CircleAvatar(
+                  child: Text('Pe'),
+                ),
+                accountName: Text('Pedrosa') , 
+                accountEmail: Text('davipedrosa@gmail.com')
+              ), 
+            ]
+          ),
       ),
 
       body: Center(
@@ -25,7 +65,7 @@ class View extends StatelessWidget{
             children: [
               Container(
                 width: 450.0,
-                height: MediaQuery.of(context).size.height*.9,
+                height: MediaQuery.of(context).size.height*.6,
                 child: 
                   Column(
                     children: [
@@ -37,7 +77,7 @@ class View extends StatelessWidget{
                         decoration: InputDecoration(
                           icon: new Icon(Icons.email),
                           labelText: 'E-mail',
-                          enabledBorder: const OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20.0)),
                           ),
                           focusedBorder: OutlineInputBorder(
@@ -50,7 +90,7 @@ class View extends StatelessWidget{
                           // prefixIcon:  Icon(Icons.lock),
                           icon: new Icon(Icons.lock),
                           labelText: 'Senha',
-                          enabledBorder: const OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20.0)),
                           ),
                           focusedBorder: OutlineInputBorder(
@@ -64,7 +104,7 @@ class View extends StatelessWidget{
                             hintText: 'Digite sua mensagem...',
                             icon: new Icon(Icons.message),
                             labelText: 'Mensagem',
-                            enabledBorder: const OutlineInputBorder(
+                            enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(20.0)),
                             ),
                             focusedBorder: OutlineInputBorder(
@@ -72,7 +112,6 @@ class View extends StatelessWidget{
                           ),
                           maxLines: null,
                         ),
-                       
                     ],
                   )
               )
@@ -80,10 +119,32 @@ class View extends StatelessWidget{
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Perfil'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.food_bank),
+            label: 'Produtos'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shop_2),
+            label: 'Carrinho'
+          ),
+        ],
+      ),
+    ),
     ),
   );
 } 
 }
+
+//exercicio 1
+//exercicio 3
+//exercicio 4 (formulario de contato - não acabado)
+//exercicio 7
 
 
 
