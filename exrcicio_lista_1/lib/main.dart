@@ -18,21 +18,22 @@ class exercicio extends StatelessWidget{
   return MaterialApp(
     home: DefaultTabController(
       initialIndex: 0,
-      length: 2,
+      length: 4,
       child: Scaffold(
         appBar:AppBar(
           title: Text('List View'),
           titleTextStyle: TextStyle(color: Color.fromRGBO(255,255,255,1)),
           backgroundColor: Color.fromRGBO(81, 15, 147, 1),
-          bottom: TabBar(
+          bottom: 
+          TabBar(
+            
             tabs: <Widget>[
               Tab(
                 icon: Icon(Icons.cloud, color: Color.fromRGBO(255,255 ,255 , 1)),
-                
               ),
               Tab(
                 icon: Icon(Icons.umbrella, color: Color.fromRGBO(255,255 ,255 , 1)),
-              ),
+              ),  
               Tab(
                 icon: Icon(Icons.car_crash, color: Color.fromRGBO(255,255 ,255 , 1)),
               ),
@@ -130,7 +131,7 @@ class exercicio extends StatelessWidget{
             label: 'Produtos'
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shop_2),
+            icon: Icon(Icons.shopping_cart),
             label: 'Carrinho'
           ),
         ],
