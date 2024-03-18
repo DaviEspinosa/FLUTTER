@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:html';
 import 'dart:js_interop';
-
-import 'package:exrcicio_lista_1/App.dart';
-import 'package:exrcicio_lista_1/View.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,10 +9,16 @@ void main(){
   runApp(exercicio());
 }
 
+
 class exercicio extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+
+  MediaQueryData mediaQueryData = MediaQuery.of(context);
+  double screenHeight = mediaQueryData.size.height;
+  double screen = screenHeight * 4; 
+
   return MaterialApp(
     home: DefaultTabController(
       initialIndex: 0,
@@ -62,11 +66,12 @@ class exercicio extends StatelessWidget{
 
       body: Center(
         child: Container(
+          height: screen,
           child: Column(
             children: [
               Container(
                 width: 450.0,
-                height: MediaQuery.of(context).size.height*.6,
+
                 child: 
                   Column(
                     children: [
@@ -121,6 +126,7 @@ class exercicio extends StatelessWidget{
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
