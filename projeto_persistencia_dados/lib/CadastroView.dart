@@ -84,10 +84,10 @@ class CadastroView extends StatelessWidget  {
                           Navigator.push(context,
                           MaterialPageRoute(builder: (context) => LoginView()));
                         }, 
-                        child: Text("Enviar"), 
+                        child: Text("Enviar", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1),),),
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(horizontal:60 , vertical: 20),
-                          backgroundColor: Color.fromRGBO(255, 255, 255, 1),   
+                          backgroundColor: Color.fromRGBO(24, 111, 182, 1),   
                         ),
                       )
                     ],
