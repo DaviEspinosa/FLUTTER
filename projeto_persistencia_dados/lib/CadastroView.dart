@@ -16,19 +16,28 @@ class CadastroView extends StatelessWidget  {
           titleTextStyle: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
           title: Text("Cadastro"),
         ),
-        body: Center(
-    child: Container(
-            height: 400,
+        body: SingleChildScrollView(
+          child: Center(
             child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 350.0,
+                  width: MediaQuery.of(context).size.width * 0.8,
                   child: Column(
                     children: [
 
+                      SizedBox(height: 20,),
+
+                      CircleAvatar(
+                        radius: 50.0,
+                        backgroundImage: AssetImage('./img/icone.webp'),
+                      ),
+
+                      SizedBox(height: 20,),
+
                       TextField(
                         decoration: InputDecoration(
-                          icon: new Icon(Icons.person_4_outlined),
+                          prefixIcon: new Icon(Icons.person_4_outlined),
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           label: Text("Name"),
                           border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)))
@@ -39,7 +48,7 @@ class CadastroView extends StatelessWidget  {
 
                       TextField(
                         decoration: InputDecoration(
-                          icon: new Icon(Icons.email),
+                          prefixIcon: new Icon(Icons.email),
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           label: Text("E-mail"),
                           border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)))
@@ -50,7 +59,7 @@ class CadastroView extends StatelessWidget  {
 
                       TextField(
                         decoration: InputDecoration(
-                          icon: new Icon(Icons.assignment_ind),
+                          prefixIcon: new Icon(Icons.assignment_ind),
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           label: Text("CPF"),
                           border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)))
@@ -61,7 +70,7 @@ class CadastroView extends StatelessWidget  {
 
                       TextField(
                         decoration: InputDecoration(
-                          icon: new Icon(Icons.lock),
+                          prefixIcon: new Icon(Icons.lock),
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           label: Text("Password"),
                           border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)))
@@ -72,7 +81,7 @@ class CadastroView extends StatelessWidget  {
 
                       TextField(
                         decoration: InputDecoration(
-                          icon: new Icon(Icons.lock_person),
+                          prefixIcon: new Icon(Icons.lock_person),
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           label: Text("Confirm Password"),
                           border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)))

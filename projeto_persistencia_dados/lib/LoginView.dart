@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
 
                       TextField(
                         decoration: InputDecoration(
-                          icon: new Icon(Icons.person_4_outlined),
+                          prefixIcon: new Icon(Icons.person_4_outlined),
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           label: Text("E-mail"),
                           border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)))
@@ -33,7 +33,7 @@ class LoginView extends StatelessWidget {
 
                       TextField(
                         decoration: InputDecoration(
-                          icon: new Icon(Icons.email),
+                          prefixIcon: new Icon(Icons.email),
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                           label: Text("Password"),
                           border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)))
