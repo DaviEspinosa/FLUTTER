@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/cadastro',
       routes: {
-        '/cadastro': (context) => CadastroView(),
+        '/cadastro': (context) => CadastroPageState(),
         '/login': (context) => LoginView(),
       },
     );

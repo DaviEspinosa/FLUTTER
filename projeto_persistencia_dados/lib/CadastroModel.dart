@@ -1,12 +1,9 @@
-import 'package:flutter/material.dart';
-
 class CadastroModel {
   // int? id; //valor desta variavel pode ser nulo
   String senha;
   String email;
   String name;
-  String confirmaSenha;
-  int cpf;
+  String cpf;
 
   CadastroModel({
 
@@ -14,7 +11,6 @@ class CadastroModel {
     required this.email,
     required this.cpf,
     required this.senha,
-    required this.confirmaSenha,
   });
 
   Map<String, dynamic> toMap() {
@@ -23,7 +19,6 @@ class CadastroModel {
       'email' : email,
       'cpf' : cpf,
       'senha' : senha,
-      'confirmaSenha' : confirmaSenha
     };
   }
 
@@ -33,7 +28,6 @@ class CadastroModel {
       email: map['email'],
       cpf: map['cpf'],
       senha: map['senha'], 
-      confirmaSenha: map['confirmaSenha'],
     );
   }
 
