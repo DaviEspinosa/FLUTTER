@@ -123,8 +123,13 @@ class _CadastroViewState extends State<CadastroPageState>  {
                             _confirmSenhaController.text.isEmpty
                         ) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Preencha todos os Campos')),);
-                              return;
+                              SnackBar(content: Text('Preencha todos os Campos')),); 
+                        }
+                        else{
+                            // Cadastro bem-sucedido
+                            ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Cadastro feito com sucesso')),);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView()));
                         }
 
                         final novoCadastro = CadastroModel(
@@ -134,33 +139,9 @@ class _CadastroViewState extends State<CadastroPageState>  {
                           senha: _senhaController.text              
                         );
                         
-                        // Validação de campos pode ser adicionada aqui
-  
-                        try {
-                          // Inserir no banco de dados
-                          await DatabaseHelper().insertCadastro(novoCadastro);
-                          // Obtém cadastros
-                          List<CadastroModel> confirmar = await DatabaseHelper().getCadastros();
+                        // inserir no banco de dados
+                        await DatabaseHelper().create(novoCadastro);
 
-                          if (confirmar.isNotEmpty) {
-                            // Cadastro bem-sucedido
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Cadastro feito com sucesso')),
-                            );
-                            // Redirecionar para a tela de login
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView()));
-                          } else {
-                            // Cadastro falhou
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Falha ao cadastrar')),
-                            );
-                          }
-                        } catch (e) {
-                          // Erro ao inserir no banco de dados
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Erro ao cadastrar ')),
-                          );
-                        }
                       },
                       child: Text("Enviar", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1))),
                       style: ElevatedButton.styleFrom(
