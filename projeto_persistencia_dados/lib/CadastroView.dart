@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new, sized_box_for_whitespace, avoid_unnecessary_containers, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:projeto_persistencia_dados/CadastroModel.dart';
+import 'package:projeto_persistencia_dados/DatabaseHelper.dart';
 import 'package:projeto_persistencia_dados/LoginView.dart';
 
 
@@ -80,9 +82,22 @@ class CadastroView extends StatelessWidget  {
                       SizedBox(height: 20,),
 
                       ElevatedButton(
-                        onPressed: (){
-                          Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginView()));
+                        onPressed: () async {
+                          CadastroModel cadastro = CadastroModel(
+                            name: "nome", 
+                            email: "email",
+                            cpf: 1, 
+                            senha: "senha", 
+                            confirmaSenha: '',
+                          );
+                          //inserir no bd
+                          await DatabaseHelper().insertCadastro(cadastro);
+                          List<CadastroModel> confirmar = await DatabaseHelper().getCadastros();
+                          
+                          if (confirmar.isNotEmpty) {
+                            
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView()));
+                          }
                         }, 
                         child: Text("Enviar", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1),),),
                         style: ElevatedButton.styleFrom(
