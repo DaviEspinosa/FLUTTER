@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 
 class BancoDados {
   
-static const String BD_NAME = 'usuarios.db'; // Nome do banco de dados
+static const String BD_NAME = 'usuario.db'; // Nome do banco de dados
 static const String TABLE_NAME = 'usuarios'; // Nome da tabela
 static const String SCRIPT_CREATE_TABLE = // Script SQL para criar a tabela
       "CREATE TABLE IF NOT EXISTS usuarios("+
@@ -21,7 +21,7 @@ static const String SCRIPT_CREATE_TABLE = // Script SQL para criar a tabela
         print("Criadoooo");
         return db.execute(SCRIPT_CREATE_TABLE); 
       },
-      version : 1,
+      version : 2,
     );
   }
 
@@ -30,7 +30,8 @@ static const String SCRIPT_CREATE_TABLE = // Script SQL para criar a tabela
     try {
       final Database db = await _getDatabase();
       await db.insert(
-          TABLE_NAME, model.toMap()); // Insere dados no banco de dados
+          TABLE_NAME, model.toMap());
+          print("cadastrado"); // Insere dados no banco de dados
     } catch (ex) {
       print(ex);
       return;

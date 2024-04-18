@@ -68,7 +68,7 @@ class _PaginaLoginState extends State<PaginaLogin> {
                           String senha = _senhaController.text;   
 
                           // Verificar se o usuário existe no banco de dados
-                          bool usuarioExiste = await BancoDados().getUsuario(email, senha);
+                          bool usuarioExiste = await BancoDados().existsUsuario(email, senha);
 
                           if (_emailController.text.isEmpty ||
                               _senhaController.text.isEmpty) {
