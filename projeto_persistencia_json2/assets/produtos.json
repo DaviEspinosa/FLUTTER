@@ -1,0 +1,17 @@
+[
+    {
+        "nome":"Fonte 600w",
+        "preco":"500",
+        "categorias":"Periféricos"
+    },
+    {
+        "nome":"Video Game",
+        "preco":"3000",
+        "categorias":"Console"
+    },
+    {
+        "nome":"Fone de Ouvido",
+        "preco":"100",
+        "categorias":"Periféricos"
+    }
+]
