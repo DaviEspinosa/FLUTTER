@@ -13,3 +13,7 @@
     botão listar produtos
         página de lista de produtos
             quando clicar no produto, abrir página do produto
+
+
+A foto do produto deve ser da galeria,
+ou tirada da própria camera, utilizando a biblioteca image_picker

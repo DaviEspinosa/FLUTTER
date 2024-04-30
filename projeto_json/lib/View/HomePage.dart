@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_json/View/CadastroLivrosPage.dart';
+import 'package:projeto_json/View/ListarLivrosPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,7 +14,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tela Inicial"),
+        title: Text("IBEL", style: TextStyle(color: Colors.white),),
+        backgroundColor: Color.fromRGBO(20, 41, 82, 0.996),
       ),
       body:Padding(padding: EdgeInsets.all(20),
         child: Center(
@@ -22,20 +25,22 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 20,),
 
               ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(65, 89, 136, 0.988)),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroPage()));
+                  Navigator.pushNamed(context, '/cadastro');
                 },
-                child: Text("Cadastrar")
-                ),
+                child: Text("Cadastrar Livros", style: TextStyle(color: Colors.white),)
+              ),
 
               SizedBox(height: 20,),
 
               ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(65, 89, 136, 0.988)),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListarProdutosPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ListarLivrosPage()));
                 },
-                child: Text("Produtos")
-                )
+                child: Text("Biblioteca", style: TextStyle(color: Colors.white),),
+              )
             ],
           ),
         ),
