@@ -28,6 +28,9 @@ class _HomePageState extends State<HomePage> {
                 style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(65, 89, 136, 0.988)),
                 onPressed: (){
                   Navigator.pushNamed(context, '/cadastro');
+                  // if (_formkey.currentState!.validate()) {
+                    
+                  // }
                 },
                 child: Text("Cadastrar Livros", style: TextStyle(color: Colors.white),)
               ),
@@ -37,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(65, 89, 136, 0.988)),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ListarLivrosPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ListarLivros()));
                 },
                 child: Text("Biblioteca", style: TextStyle(color: Colors.white),),
               )
