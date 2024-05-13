@@ -1,0 +1,17 @@
+[
+    {
+        "nome":"Monitor",
+        "preco":300.00,
+        "categoria":"Informática"
+    },
+    {
+        "nome":"Mouse",
+        "preco":30.00,
+        "categoria":"Periférico"
+    },
+    {
+        "nome":"Camiseta Linux",
+        "preco":590.00,
+        "categoria":"Informática"
+    }
+]
