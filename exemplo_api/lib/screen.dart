@@ -13,6 +13,8 @@ class WeatherScreen extends StatefulWidget {
 
 // Classe que representa o estado do widget de previsão do tempo.
 class _WeatherScreenState extends State<WeatherScreen> {
+  TextEditingController _cityController = new TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   // Instância do serviço WeatherService para obter os dados de previsão do tempo.
   final WeatherService _weatherService = WeatherService(
     apiKey:
@@ -28,12 +30,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   void initState() {
     super.initState();
-    _weatherData =
-        {
-'name': '',
-
-        
-        }; // Chama o método para buscar os dados de previsão do tempo para São Paulo.
+    _weatherData = {
+      'name' : '',
+      'main':{'temp':0},
+      'weather':[
+        {'description':''}
+      ]
+    };
   }
 
   // Método assíncrono para buscar os dados de previsão do tempo para uma cidade específica.
@@ -51,8 +54,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
     }
   }
 
-  TextEditingController _citycontroller = new TextEditingController();
-
   // Método responsável por construir a interface de usuário do widget.
   @override
   Widget build(BuildContext context) {
@@ -62,37 +63,41 @@ class _WeatherScreenState extends State<WeatherScreen> {
           // Título da barra de aplicativos.
         ),
         body: Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(12),
           child: Center(
             child: Form(
                 child: Column(
               children: [
                 TextFormField(
-                  controller: _citycontroller,
-                  decoration:
-                      const InputDecoration(labelText: "Insira a cidade"),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Insira a cidade";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
+                    controller: _cityController,
+                    decoration:
+                        const InputDecoration(labelText: "Insira a Cidade"),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Insira a Cidade';
+                      }
+                    }),
                 ElevatedButton(
                     onPressed: () {
-                      // if (_formKey) {
-                      //   _fetchWeatherData(_citycontroller.text);
-                      // }
+                       _fetchWeatherData(_cityController.text);
                     },
-                    child: const Text("Buscar"))
+                    child: const Text("Buscar")),
+                SizedBox(
+                  height: 12,
+                ),
+
+                _weatherData == null
+                    ? Center(child: Text(""))
+                    : Text(
+                          'City: ${_weatherData['name']}'), // Exibe o nome da cidade.
+                      Text(
+                          'Temperature: ${_weatherData['main']['temp'] - 273 } °C'), // Exibe a temperatura em graus Celsius.
+                      Text(
+                          'Description: ${_weatherData['weather'][0]['description']}'), // Exibe a descrição do clima.
               ],
             )),
           ),
         ));
   }
-
-  // void _validacao() {
-  //   if (_formKey == values) {}
-  // }
+  
 }

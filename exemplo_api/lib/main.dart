@@ -1,8 +1,8 @@
-import 'package:exemplo_api/weather_screen.dart';
+import 'package:exemplo_api/screen.dart';
 import 'package:flutter/material.dart';
 
 
-import 'weather_screen.dart';
+import 'screen.dart';
 
 
 void main() {
