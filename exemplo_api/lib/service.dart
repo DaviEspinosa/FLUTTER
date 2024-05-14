@@ -33,5 +33,8 @@ class WeatherService {
       // Se a resposta não foi bem-sucedida, lança uma exceção indicando o erro.
       throw Exception('Failed to load weather data');
     }
-}
+  }
+
+
+			
 }

@@ -1,3 +1,4 @@
+import 'package:exemplo_api/banco_dados.dart';
 import 'package:exemplo_api/screen.dart';
 import 'package:flutter/material.dart';
 
@@ -5,9 +6,13 @@ import 'package:flutter/material.dart';
 import 'screen.dart';
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DatabaseService.initializeDatabase();
   runApp(const MyApp());
 }
+
+ 
 
 
 class MyApp extends StatelessWidget {
