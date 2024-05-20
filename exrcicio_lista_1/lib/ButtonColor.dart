@@ -21,7 +21,7 @@ class ButtonColor extends State<_ColorChangeButton> {
   Widget build(BuildContext context){
     return MaterialApp(
       home: Scaffold(
-                  child: Center(
+            child: Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: _buttonColor),
                 onPressed: _changeButtonColor,

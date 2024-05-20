@@ -33,5 +33,7 @@ class WeatherService {
     }
   }
 
-  Future<Map<String, dynamic>> getWeatherByLocation() async{}
+  Future<Map<String, dynamic>> getWeatherByLocation(double lat, double lom) async{
+
+  }
 }
