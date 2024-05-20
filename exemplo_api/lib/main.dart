@@ -1,13 +1,18 @@
-import 'package:exemplo_api/weather_screen.dart';
+import 'package:exemplo_api/banco_dados.dart';
+import 'package:exemplo_api/screen.dart';
 import 'package:flutter/material.dart';
 
 
-import 'weather_screen.dart';
+import 'screen.dart';
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DatabaseService.initializeDatabase();
   runApp(const MyApp());
 }
+
+ 
 
 
 class MyApp extends StatelessWidget {
