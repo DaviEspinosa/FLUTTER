@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:lista_online/tarefa_controller.dart';
 import 'package:lista_online/tarefas_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: TarefasView(),
+    return ChangeNotifierProvider(
+      create: (_) => TarefasController(),
+      child: MaterialApp(
+        title: 'Lista de Tarefas',
+        home: TarefasView(),
+      ),
     );
-    
   }
 }
