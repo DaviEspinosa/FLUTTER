@@ -30,6 +30,8 @@ environment:
 dependencies:
   googleapis_auth: 1.4.1
   flutter:
+    # assets: 
+    #   - assets/db.json
     sdk: flutter
 
 
