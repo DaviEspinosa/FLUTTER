@@ -17,8 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // geolocator
-    _getWeather();
   }
 
   Future<void> _getWeather() async{
@@ -63,34 +61,43 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 20),
               //construir a exibição do clima(geolocalização)
-              _controller.weatherList.isEmpty 
-              ?
-               Column(
-                children: [
-                  const Text("Localização Não Encontrada"),
-                  IconButton(
-                    icon: const Icon(Icons.refresh),
-                    onPressed: () {
-                      _getWeather();
-                     },
-                  )
-                ]
-              )
-              :
-              Column(
-                children: [
-                  Text(_controller.weatherList.last.name),
-                  Text(_controller.weatherList.last.main),
-                  Text(_controller.weatherList.last.description),
-                  Text(_controller.weatherList.last.description),
-                  Text((_controller.weatherList.last.temp-273).toString()),
-                  Text((_controller.weatherList.last.tempMax-273).toString()),
-                  Text((_controller.weatherList.last.tempMin-273).toString()),
-                  
-              ],)
-            ],
-          )
-        ),) ,
+              Builder(
+                builder: (context) {
+                  if (_controller.weatherList.isEmpty) {
+                    return Column(children: [
+                      const Text("Localização Não Encontrada"),
+                      IconButton(
+                        icon: const Icon(Icons.refresh),
+                        onPressed: () {
+                          _getWeather();
+                        },
+                      )
+                    ]);
+                  } else {
+                    return Column(
+                      children: [
+                        Text(_controller.weatherList.last.name),
+                        Text(_controller.weatherList.last.main),
+                        Text(_controller.weatherList.last.description),
+                        Text((_controller.weatherList.last.temp - 273)
+                            .toString()),
+                        Text((_controller.weatherList.last.tempMax - 273)
+                            .toString()),
+                        Text((_controller.weatherList.last.tempMin - 273)
+                            .toString()),
+                        IconButton(
+                          icon: const Icon(Icons.refresh),
+                          onPressed: () {
+                            _getWeather();
+                          },
+                        )
+                      ],
+                    );
+                  }
+                })
+          ],
+        )),
+      ),
     );
   }
 }
