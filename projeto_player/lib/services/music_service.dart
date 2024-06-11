@@ -1,22 +1,26 @@
+
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:projeto_player/model/music_model.dart';
 
-import 'package:http/http.dart' as http;
+class MusicService {
+  List<Music> _list = [];  
+  List<Music> get list => _list;
 
-class MusicService{
-  final Uri url = "http://URL_JSON.com" as Uri;
+  final String url = "http://192.168.56.1:3000/music";
 
-  List<MusicModel> _listMusic = [];
-  List<MusicModel> get listMusic => _listMusic;
-
-  // fetch lista de musicas 
-  Future<List<MusicModel>> fetchListMusic() async {
-    final response = await http.get(url);
+  //fetchList()
+  Future<List<Music>> fetchList() async{
+    final Response  response = await http.get(Uri.parse(url));
     if(response.statusCode == 200){
-      _listMusic = json.decode(response.body).map<MusicModel>((item) =>
-       MusicModel.fromJson(item)).toList();
+      final List<dynamic> list = json.decode(response.body);
+      _list.clear();
+      _list.addAll(list.map((e) => Music.fromJson(e)).toList());
+      return _list;
     }
-    return _listMusic;
+    return [];
+
   }
 }

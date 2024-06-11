@@ -1,12 +1,12 @@
-class MusicModel {
+class Music {
   final String titulo;
   final String artista;
   final String url;
 
-  MusicModel({required this.titulo, required this.artista, required this.url});
+  Music({required this.titulo, required this.artista, required this.url});
 
-  factory MusicModel.fromJson(Map<String, dynamic> json) {
-    return MusicModel(
+  factory Music.fromJson(Map<String, dynamic> json) {
+    return Music(
       titulo: json['titulo'],
       artista: json['artista'],
       url: json['url'],
