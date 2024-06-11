@@ -9,7 +9,7 @@ class MusicService {
   List<Music> _list = [];  
   List<Music> get list => _list;
 
-  final String url = "http://192.168.56.1:3000/music";
+  final String url = "http://10.109.204.24:3000/music";
 
   //fetchList()
   Future<List<Music>> fetchList() async{
