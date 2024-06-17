@@ -9,7 +9,7 @@ class MusicService {
   List<MusicModel> _list = [];
   List<MusicModel> get list => _list;
 
-  final String url = "http://10.109.204.24:3000/music";
+  final String url = "http://localhost:3000/music";
 
   //fetchList()
   Future<List<MusicModel>> fetchList() async{
@@ -17,7 +17,7 @@ class MusicService {
     if(response.statusCode == 200){
       final List<dynamic> list = json.decode(response.body);
       _list.clear();
-      _list.addAll(list.map((e) => MusicModel.fromMap(e)).toList());
+      _list.addAll(list.map((e) => MusicModel.fromJson(e)).toList());
       return _list;
     }
     return [];

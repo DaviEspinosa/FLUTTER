@@ -7,11 +7,11 @@ class MusicModel {
   MusicModel({required this.title, required this.artist, required this.url});
 
   //fromMap
-  factory MusicModel.fromMap(Map<String, dynamic> map) {
+  factory MusicModel.fromJson(Map<String, dynamic> json) {
     return MusicModel(
-      title: map['title'],
-      artist: map['artist'],
-      url: map['url'],
+      title: json['title'],
+      artist: json['artist'],
+      url: json['url'],
     );
   }
 }
