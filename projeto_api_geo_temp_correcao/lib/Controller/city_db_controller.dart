@@ -14,7 +14,7 @@ class CityDbController {
     // for(Map<String,dynamic> map in maps){
     //     _cities.add(City.fromMap(map));
     //   }
-    _cities = maps.map<City>((e) => City.fromMap(e)).toList();
+    _cities = maps.map<City>((e) =>   City.fromMap(e)).toList();
     return _cities;
   }
   //add city
